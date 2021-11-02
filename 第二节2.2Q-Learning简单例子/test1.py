@@ -29,7 +29,7 @@ def choose_action(state, q_table):
     if (np.random.uniform() > EPSILON) or (state_actions.all() == 0):  # 非贪婪 or 或者这个 state 还没有探索过
         action_name = np.random.choice(ACTIONS) # 随机选择
     else:
-        action_name = state_actions.index.tolist()[state_actions.argmax()]    # 贪婪模式
+        action_name = state_actions.idxmax()    # 贪婪模式
     if(isinstance(action_name,int)):
         print(1)
     return action_name  #q_table.columns.values
